@@ -2,8 +2,6 @@ from flask import Flask, request, send_from_directory, jsonify, render_template,
 import os
 import numpy as np
 import pandas as pd
-from web_app.vege_measure import VegeMeasureClass
-from web_app.controll_data import ControllDataClass
 
 app = Flask(__name__)
 
