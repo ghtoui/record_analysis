@@ -14,5 +14,5 @@ app.config.from_object('web_app.config')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static/images'), 'favicon.ico', )
 
-
 from web_app import view
+from web_app import controll
