@@ -1,5 +1,7 @@
 # record_analysis
 
+## ブランチを切って開発するのを忘れずに(mainで開発しない)
+
 ## templates
 
 htmlファイルはここ </br>
