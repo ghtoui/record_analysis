@@ -8,6 +8,8 @@
         <!-- ③ 録音の開始／終了ボタンを設置する部分 -->
         <button class="btn btn-danger" type="button" v-if="status=='ready'" @click="startRecording">録音を開始する</button>
         <button class="btn btn-primary" type="button" v-if="status=='recording'" @click="stopRecording">録音を終了する</button>
+        <input type="button" value="送信開始" id="start" onclick="getData()"></input>
+        <div id="result"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
     <script>
@@ -87,6 +89,30 @@
 
             }
         });
+
+        function getData(){
+        let xml = new XMLHttpRequest();
+  
+        xml.onreadystatechange = function(){
+          if (xml.readyState == 4){
+            if (xml.status == 200){
+              //resultの部分をhtmlのidに変える必要あり  
+              let data = document.getElementById("result");
+              console.log(aaa);
+              //受け取り
+              //xml.resposeなのかxml.responsexmlなのかわからん
+              data.innerHTML = xml.response;
+            }
+          }
+        }
+        //送り先
+        xml.open('POST', '/upload', true);
+        // サーバに対して解析方法を指定する
+        //この設定だと音声データをバイナリ形式で送るになっている
+        xml.setRequestHeader( 'Content-Type', 'multipart/form-data');
+        //送る
+        xml.send(audioData);
+      }
 
     </script>
 </body>
