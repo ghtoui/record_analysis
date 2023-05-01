@@ -11,6 +11,7 @@ vd = VisualDataClass()
 @app.route('/upload', methods = ['POST'])
 def upload_file():
     FILE_NAME = 'record_file'
+    print("aaa")
 
     # POSTで送られてきた音楽ファイルを取り出す
     record_file = request.files[FILE_NAME]
